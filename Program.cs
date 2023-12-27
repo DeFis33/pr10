@@ -19,9 +19,9 @@ namespace pr10
             {
                 try
                 {
-                    int M = 3, N = 5;
+                    int M = 3, N = 5; // инициализация размеров двумерного массива
                     Random rnd = new Random(); // создание экземпляра генератора случайных чисел
-                    int[,] matrix = new int[M, N]; // объявление и инициализация двумерного массива
+                    int[,] Mas = new int[M, N]; // инициализация двумерного массива
                     int product = 1; // product - хранение произведения ненулевых элементов матрицы
 
                     Console.WriteLine("\nХотите ли вы сами ввести элементы матрицы? (Да/Нет).\nЛибо введите команду (Выход), которая завершит работу программы:");
@@ -39,12 +39,12 @@ namespace pr10
                         {
                             for (int j = 0; j < N; j++) // ввод по столбцам
                             {
-                                Console.Write("Элемент [" + i + ", " + j + "]: ");
-                                matrix[i, j] = Convert.ToInt32(Console.ReadLine());
+                                Console.Write("Элемент [" + i + "," + j + "]: ");
+                                Mas[i, j] = Convert.ToInt32(Console.ReadLine());
 
-                                if (matrix[i, j] != 0) // если matrix[i, j] не равно нулю, то
+                                if (Mas[i, j] != 0) // если Mas[i, j] не равно нулю, то
                                 {
-                                    product *= matrix[i, j]; // умножение текущего значения product на значение ненулевого элемента, накапливая произведение ненулевых элементов
+                                    product *= Mas[i, j]; // умножение текущего значения product на значение ненулевого элемента, накапливая произведение ненулевых элементов
                                 }
                             }
                             Console.WriteLine();
@@ -56,12 +56,12 @@ namespace pr10
                         {
                             for (int j = 0; j < N; j++)
                             {
-                                matrix[i, j] = rnd.Next(-100, 101); // генерация неповторяющихся значений
+                                Mas[i, j] = rnd.Next(-100, 101); // генерация неповторяющихся значений
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                Console.Write(matrix[i, j] + "\t");
-                                if (matrix[i, j] != 0)
+                                Console.Write(Mas[i, j] + "\t");
+                                if (Mas[i, j] != 0)
                                 {
-                                    product *= matrix[i, j];
+                                    product *= Mas[i, j];
                                 }
                             }
                             Console.WriteLine();
