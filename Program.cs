@@ -19,12 +19,12 @@ namespace pr10
             {
                 try
                 {
-                    int M = 3, N = 5; // инициализация размеров двумерного массива
-                    Random rnd = new Random(); // создание экземпляра генератора случайных чисел
-                    int[,] Mas = new int[M, N]; // инициализация двумерного массива
-                    int product = 1; // product - хранение произведения ненулевых элементов матрицы
+                    int M = 3, N = 5; 
+                    Random rnd = new Random(); 
+                    int[,] Mas = new int[M, N]; 
+                    int product = 1;
 
-                    Console.WriteLine("\nХотите ли вы сами ввести элементы матрицы? (Да/Нет).\nЛибо введите команду (Выход), которая завершит работу программы:");
+                    Console.WriteLine("\nХотите ли бы вы сами ввести элементы матрицы? (Да/Нет).\nЛибо введите команду (Выход), которая завершит работу программы:");
                     string a = Console.ReadLine();
 
                     if (a == "Выход")
@@ -32,7 +32,7 @@ namespace pr10
                         Console.WriteLine("Программа завершена.\nДо свидания!");
                         break;
                     }
-                    if (a == "Да") // если пользователь хочет сам ввести элементы матрицы, то
+                    if (a == "Да") 
                     {
                         Console.WriteLine("Введите элементы матрицы: ");
                         for (int i = 0; i < M; i++) // ввод по строкам
@@ -42,23 +42,24 @@ namespace pr10
                                 Console.Write("Элемент [" + i + "," + j + "]: ");
                                 Mas[i, j] = Convert.ToInt32(Console.ReadLine());
 
-                                if (Mas[i, j] != 0) // если Mas[i, j] не равно нулю, то
+                                if (Mas[i, j] != 0)
                                 {
-                                    product *= Mas[i, j]; // умножение текущего значения product на значение ненулевого элемента, накапливая произведение ненулевых элементов
+                                    product *= Mas[i, j];
                                 }
                             }
                             Console.WriteLine();
                         }
                     }
-                    else if (a == "Нет") // иначе, если
+                    else if (a == "Нет")
                     {
                         for (int i = 0; i < M; i++)
                         {
                             for (int j = 0; j < N; j++)
                             {
-                                Mas[i, j] = rnd.Next(-100, 101); // генерация неповторяющихся значений
+                                Mas[i, j] = rnd.Next(-100, 101); 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write(Mas[i, j] + "\t");
+
                                 if (Mas[i, j] != 0)
                                 {
                                     product *= Mas[i, j];
@@ -78,19 +79,21 @@ namespace pr10
                     Console.WriteLine("Произведение ненулевых элементов: " + product);
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                catch (FormatException e) // частное исключение
+                catch (FormatException fe)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nОшибка ввода \n" + e.Message); // вывод ошибки на экран
+                    Console.WriteLine($"\nОшибка ввода \n" + fe.Message); 
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                catch (Exception e) // общее исключение
+                catch (Exception e) 
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nОшибка ввода \n" + e.Message); // вывод ошибки на экран
+                    Console.WriteLine($"\nОшибка ввода \n" + e.Message); 
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
         }
     }
 }
+// не выводить матрицу если она равна нулю
+// добавить обработчик ошибок отдельно для матрицы
