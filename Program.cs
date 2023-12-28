@@ -33,7 +33,7 @@ namespace pr10
                         Console.WriteLine("Программа завершена.\nДо свидания!");
                         break;
                     }
-                    if (a == "Да")
+                    else if (a == "Да")
                     {
                         Console.WriteLine("Введите элементы матрицы: ");
                         for (int i = 0; i < M; i++) // ввод по строкам
