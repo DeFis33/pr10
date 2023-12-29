@@ -51,10 +51,10 @@ namespace pr10
                                         NotEmpty = true;
                                     }
                                 }
-                                catch (FormatException fe)
+                                catch (IndexOutOfRangeException ore)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine($"\nОшибка ввода. Введите целое число. \n" + fe.Message);
+                                    Console.WriteLine($"\nОшибка ввода \n" + ore.Message);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     j--;
                                 }
